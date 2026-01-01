@@ -532,8 +532,8 @@ async def main():
 
     try:
         async with CrashProofScraper(
-            max_concurrent_requests=5,
-            delay_between_requests=1.0,
+            max_concurrent_requests=15,
+            delay_between_requests=0.3,
             batch_size=BATCH_SIZE,
             progress_dir=PROGRESS_DIR
         ) as scraper:
