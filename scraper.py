@@ -31,8 +31,8 @@ class CrashProofScraper:
 
     def __init__(
         self,
-        max_concurrent_requests: int = 5,
-        delay_between_requests: float = 1.0,
+        max_concurrent_requests: int = 20,
+        delay_between_requests: float = 0.5,
         batch_size: int = 10,
         progress_dir: str = ".scraper_progress"
     ):
