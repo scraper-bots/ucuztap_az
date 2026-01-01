@@ -31,8 +31,8 @@ class CrashProofScraper:
 
     def __init__(
         self,
-        max_concurrent_requests: int = 20,
-        delay_between_requests: float = 0.5,
+        max_concurrent_requests: int = 50,
+        delay_between_requests: float = 0.1,
         batch_size: int = 10,
         progress_dir: str = ".scraper_progress"
     ):
@@ -270,7 +270,8 @@ class CrashProofScraper:
         soup = BeautifulSoup(html, 'html.parser')
         price_data = {"price": "", "price_numeric": ""}
 
-        price_elem = soup.find('button', class_='btn btn-price')
+        # Fixed: use 'btn-price' instead of 'btn btn-price' to match any element with this class
+        price_elem = soup.find('button', class_='btn-price')
         if price_elem:
             price_text = price_elem.get_text(strip=True)
             price_data["price"] = self.clean_text(price_text)
