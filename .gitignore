@@ -20,6 +20,9 @@ build/
 *.json
 *.xlsx
 .scraper_progress
+
+ucuztap_listings_backup.csv
+
 # Jupyter Notebook
 .ipynb_checkpoints
 

@@ -171,6 +171,9 @@ class CrashProofScraper:
 
                 logger.info(f"Appended {len(self.all_data)} new listings to {filename}")
 
+                # IMPORTANT: Clear all_data after successful append to prevent duplicates
+                self.all_data = []
+
         except Exception as e:
             logger.error(f"Error saving data: {e}")
             # Try to save to backup file
@@ -512,7 +515,7 @@ async def main():
 
     # Configuration
     START_PAGE = 1
-    END_PAGE = 2  # Adjust this to scrape more pages
+    END_PAGE = 398  # Adjust this to scrape more pages
     OUTPUT_FILE = "ucuztap_listings.csv"
     BATCH_SIZE = 10  # Save after every 10 listings
     PROGRESS_DIR = ".scraper_progress"
